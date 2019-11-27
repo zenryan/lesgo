@@ -1,8 +1,29 @@
 Resources:
+  # FIXME: Currently setting up ES on VPC is not working
+  # ElasticsearchServiceRole:
+  #   Type: 'AWS::IAM::ServiceLinkedRole'
+  #   Properties:
+  #     AWSServiceName: es.amazonaws.com
+  #     Description: 'Role for ES to access resources'
+  # ElasticsearchSecurityGroup:
+  #   Type: 'AWS::EC2::SecurityGroup'
+  #   Properties:
+  #     GroupName: '${self:provider.stackName}-elasticsearchSecurityGroup'
+  #     GroupDescription: 'Allow local inbound to Elasticsearch port 9200, no outbound'
+  #     SecurityGroupIngress:
+  #       - CidrIp: 10.0.0.0/16
+  #         IpProtocol: tcp
+  #         FromPort: 9200
+  #         ToPort: 9200
+  #     SecurityGroupEgress:
+  #       - IpProtocol: -1
+  #         CidrIp: 127.0.0.1/32
+  #     VpcId:
+  #       Ref: Vpc
   ElasticsearchInstance:
     Type: AWS::Elasticsearch::Domain
     Properties:
-      DomainName: ${self:provider.stackName}-elastic
+      DomainName: ${self:provider.stackName}-es
       EBSOptions:
         EBSEnabled: true
         VolumeType: gp2
@@ -13,3 +34,9 @@ Resources:
         DedicatedMasterEnabled: false
         ZoneAwarenessEnabled: false
       ElasticsearchVersion: 6.5
+      # FIXME: Currently setting up ES on VPC is not working
+      # VPCOptions:
+      #   SecurityGroupIds:
+      #     - Ref: ElasticsearchSecurityGroup
+      #   SubnetIds:
+      #     - Ref: PrivateSubnet1

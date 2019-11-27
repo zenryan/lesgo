@@ -1,5 +1,3 @@
-import { URL } from 'url';
-
 export default {
   /*
    *--------------------------------------------------------------------------
@@ -39,7 +37,7 @@ export default {
       options: {
         node: [
           {
-            url: new URL(process.env.ES_NODE || null),
+            url: process.env.ES_ENDPOINT,
             maxRetries: 1,
             awsRegion: process.env.ES_REGION,
           },
@@ -54,7 +52,7 @@ export default {
       options: {
         node: [
           {
-            url: new URL(process.env.ES_NODE),
+            url: process.env.ES_NODE,
             maxRetries: 1,
           },
         ],
