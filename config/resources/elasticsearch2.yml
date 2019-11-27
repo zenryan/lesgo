@@ -1,8 +1,8 @@
 Resources:
-  ElasticSearchInstance:
+  ElasticsearchInstance:
     Type: AWS::Elasticsearch::Domain
     Properties:
-      DomainName: ${self:provider.stackName}
+      DomainName: ${self:provider.stackName}-elastic
       EBSOptions:
         EBSEnabled: true
         VolumeType: gp2
