@@ -27,6 +27,9 @@ module.exports = {
     '^Utils/queue$': '<rootDir>/tests/__mocks__/utils/queue.js',
     '^Utils/database$': '<rootDir>/node_modules/lesgo/src/utils/database.js',
     '^Utils/sentry$': '<rootDir>/node_modules/lesgo/src/utils/sentry.js',
+    '^Utils/dynamodb$': '<rootDir>/node_modules/lesgo/src/utils/dynamodb.js',
+    '^Services/dynamodb/BaseModel$':
+      '<rootDir>/node_modules/lesgo/src/services/dynamodb/BaseModel.js',
     '^@sentry/node$': '<rootDir>/node_modules/@sentry/node/dist/index.js',
   },
   transformIgnorePatterns: ['/node_modules/(?!lesgo).+\\.js$'],

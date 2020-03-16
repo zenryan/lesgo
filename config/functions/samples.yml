@@ -109,3 +109,14 @@
 #         method: get
 #         private: false
 #         cors: ${self:custom.http.cors}
+
+# dynamodbCreate:
+#   handler: ${self:custom.path.app}/handlers/samples/dynamodb.handler
+#   description: Elastic Search Sample
+#   reservedConcurrency: 1
+#   events:
+#     - http:
+#         path: samples/dynamodb
+#         method: post
+#         private: false
+#         cors: ${self:custom.http.cors}

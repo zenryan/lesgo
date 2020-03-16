@@ -50,6 +50,7 @@ provider:
       Action:
         - 'es:*'
       Resource: '*'
+    # - ${file(${self:custom.path.roles}/dynamodb.yml)}
 
   # TODO Review if this is still relevant
   # environment:
@@ -63,6 +64,7 @@ custom:
     app: src
     functions: config/functions
     resources: config/resources
+    roles: config/roles
   serverless-offline:
     port: 8888
   webpack:
@@ -87,3 +89,4 @@ resources:
   #- ${file(${self:custom.path.resources}/elastiCache.yml)}
   #- ${file(${self:custom.path.resources}/sqs.yml)}
   #- ${file(${self:custom.path.resources}/elasticsearch.yml)}
+  # - ${file(${self:custom.path.resources}/dynamodb.yml)}
